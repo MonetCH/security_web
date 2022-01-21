@@ -350,18 +350,6 @@
   width: 30px;
 }
 
-.stateButton2{
-  display: flex;
-  position: relative;
-  width: 45px;
-  height: 45px;
-  background-color : transparent;
-  border: none;
-  background-image: url("../assets/greenLight.jpg");
-  left:25%;
-  top: 50%;
-}
-
 .multiselect{
      -webkit-box-sizing: content-box;
     box-sizing: content-box;
