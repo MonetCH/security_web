@@ -3,6 +3,11 @@ from flask_cors import CORS
 import random as rd
 app = Flask(__name__)
 CORS(app)
+'''
+    flask 接收 API 的範例程式碼
+    
+'''
+
 
 @app.route("/api/get/cnc")
 def getX():

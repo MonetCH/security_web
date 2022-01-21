@@ -47,14 +47,4 @@ export default {
   color: white;
   margin-top: 60px;
 }
-/* 
-body {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: white;
-  background-color: #343a40;
-  margin-top: 60px;
-} */
 </style>

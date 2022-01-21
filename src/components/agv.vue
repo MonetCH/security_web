@@ -15,7 +15,7 @@
                     height:"100%"
                 },
                 src:"https://vpn.ntut-smodist.tw",
-                // src:"http://neverssl.com/",
+                
             }
         },
         mounted:{

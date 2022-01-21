@@ -1,31 +1,29 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import VueAxios from 'vue-axios'
+import VueSidebarMenu from 'vue-sidebar-menu'
+import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+
+import Keycloak from 'keycloak-js'
+
 import App from './App'
 import axios from 'axios'
 import store from './store'
 import router from './router';
 import Cookies from 'js-cookie'
-
 import Element from 'element-ui'
-import './styles/element-variables.scss'
 import enLang from 'element-ui/lib/locale/lang/en'// 如果使用中文语言包请默认支持，无需额外引入，请删除该依赖
 
+import './styles/element-variables.scss'
 import '@/styles/index.scss' // global css
 
-
-import VueAxios from 'vue-axios'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import VueSidebarMenu from 'vue-sidebar-menu'
 
-import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
-
-import Keycloak from 'keycloak-js'
 import './permission' // permission control
 import './utils/error-log'
-
 import * as filters from './filters' // global filters
 
 
@@ -43,10 +41,6 @@ Vue.config.productionTip = false
  * Currently MockJs will be used in the production environment,
  * please remove it before going online ! ! !
  */
- if (process.env.NODE_ENV === 'production') {
-  // const { mockXHR } = require('../mock')
-  // mockXHR()
-}
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // set element-ui default size
@@ -61,16 +55,9 @@ Object.keys(filters).forEach(key => {
 Vue.config.productionTip = false
 
 // keycloak init options
-const initOptions = {
-  // url: process.env.VUE_APP_KEYCLOAK_OPTIONS_URL,
-  // realm: process.env.VUE_APP_KEYCLOAK_OPTIONS_REALM,
-  // clientId: process.env.VUE_APP_KEYCLOAK_OPTIONS_CLIENTID,
-  // onLoad: process.env.VUE_APP_KEYCLOAK_OPTIONS_ONLOAD
-  
+const initOptions = { 
   url: 'https://keycloak.ntut-smodist.tw/auth', realm: 'demo', clientId: 'security-webvue-keycloak', onLoad: 'login-required'
-  // url: 'http://127.0.0.1:8080/auth', realm: 'demo', clientId: 'security-webvue-keycloak', onLoad: 'login-required'
 }
-// console.log('env'+process.env.VUE_APP_KEYCLOAK_OPTIONS_URL)
 
 const keycloak = Keycloak(initOptions)
 
@@ -83,10 +70,8 @@ keycloak.init({ onLoad: initOptions.onLoad }).then(async authenticated => {
     await store.dispatch('user/keycloakLogin', keycloak.token)
     console.log('Authenticated', keycloak)
   }
-  // if(keycloak.logout() ){
-  //   console.log("log out sucess");
-  // }
 
+  // 更新token
   setInterval(() => {
     keycloak.updateToken(70).then((refreshed) => {
       if (refreshed) {
@@ -111,14 +96,3 @@ keycloak.init({ onLoad: initOptions.onLoad }).then(async authenticated => {
 }).catch(error => {
   console.log('Authenticated Failed', error)
 })
-
-
-/* eslint-disable no-new */
-// new Vue({
-//   el: '#app',
-//   router,
-//   components: { App },
-//   template: '<App/>'
-// })
-
-

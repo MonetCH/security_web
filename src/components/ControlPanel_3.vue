@@ -303,10 +303,8 @@ export default {
           })
         },
         getOperationStatus() {
-            // const cnc_url = process.env.VUE_APP_CNC_URL
             axios({
               method: 'post',
-              // crossdomain: true,
               url: '/getcnc',
               data: {id:'cnc3'},
               headers: {
@@ -314,7 +312,6 @@ export default {
               }
             })
             .then(res => {
-              // if res.data == "doesn't exist"  //TODO
                 this.force_stop = res.data.force_stop;
                 this.green_light = res.data.green_light;
                 this.red_light = res.data.red_light;

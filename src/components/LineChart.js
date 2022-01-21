@@ -1,6 +1,7 @@
 import { Line, mixins } from 'vue-chartjs'
 const { reactiveProp } = mixins
 
+// Laser畫線用的
 export default {
   extends: Line,
   mixins: [reactiveProp],

@@ -11,7 +11,7 @@
               </svg>
             </b-list-group-item>
             <b-list-group-item style="background-color:#343a40;">
-              <b-button variant="light" @click="getNowLaserData()" class="getDataButton">取得即時資料</b-button>
+              <b-button variant="light" @click="getNowLaserData()">取得即時資料</b-button>
               <b-button variant="danger" @click="stopNowLaserData()">停止搜尋</b-button>
             </b-list-group-item>
             <b-list-group-item style="background-color:#343a40;">
@@ -103,10 +103,6 @@
     },
     methods: {
       drawChart() {
-        // console.log("[LaserChart] => drawChart() => x_list = " + this.x_list_data.length);
-        // console.log("[LaserChart] => drawChart() => x_list = " + this.x_list_data);
-        // console.log("[LaserChart] => drawChart() => y_list_data = " + this.y_list_data.length);
-        // console.log("[LaserChart] => drawChart() => y_list_data = " + this.y_list_data);
         this.laserCollection = {
           labels: this.x_list_data,
           datasets: [
@@ -121,8 +117,6 @@
             }
           ]
         }
-        // console.log("[laserZIndexCollection] => drawChart() => x_list_z_index = " + this.x_list_z_index);
-        // console.log("[laserZIndexCollection] => drawChart() => y_list_z_index = " + this.y_list_z_index);
         this.laserZIndexCollection = {
           labels: this.x_list_z_index,
           datasets: [
@@ -193,8 +187,6 @@
         var result = this.getNowToBeforeOneMinTime();
         var begin = result[0];
         var end = result[1];
-        // console.log('begin = ' + begin);
-        // console.log('end = ' + end);
         var that = this;
         this.nowProcessId = setTimeout( function () {
           axios({
@@ -341,33 +333,23 @@
 }
 
 .leserProcessLineChart{
-  /* position: absolute; */
   left:60%;
 }
+
 .state{
-  /* position: absolute; */
   top:18%;
-  /* left:20%; */
   display: flex;
 }
+
 .stateTitle{
   font-size: 40pt;
 }
+
 #laser-indicator {
   height: 30px;
   width: 30px;
 }
-.stateButton{
-  /* display: flex; */
-  /* position: relative; */
-  /* width: 45px; */
-  /* height: 45px; */
-  /* background-color : transparent; */
-  /* border: none; */
-  /* background-image: url("../assets/greenLight.jpg"); */
-  /* left:25%; */
-  /* top: 50%; */
-}
+
 .stateButton2{
   display: flex;
   position: relative;
@@ -379,29 +361,11 @@
   left:25%;
   top: 50%;
 }
-.getDataButton{
-
-}
-/* .StartTimeSelect .item{
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    display: block;
-    position: relative;
-    left:20%;
-    top:25%;
-    width: 14%;
-    min-height: 40px;
-    text-align: left;
-    color: #2e3e50c9;
-} */
 
 .multiselect{
      -webkit-box-sizing: content-box;
     box-sizing: content-box;
     display: block;
-    /* position: absolute; */
-    /* left:20%; */
-    /* top:25%; */
     width: 14%;
     min-height: 40px;
     text-align: left;
@@ -428,7 +392,6 @@
   position: absolute;
   top: 45%;
   left: 20%;
-  /* width:10%; */
   font-size: 20pt;
 }
 #set_laser_z_index_button {
@@ -439,10 +402,6 @@
 }
 .chart_title{
   font-size: 20pt
-}
-
-#zInput{
-  /* background-color: rgba(39, 39, 39, 0.651); */
 }
 
 </style>

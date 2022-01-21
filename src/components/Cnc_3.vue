@@ -115,7 +115,6 @@ export default {
        getToken(){
           axios({
             method: 'post',
-            // crossdomain: true,
             url: '/token',
             data: qs.stringify({
               grant_type: 'password',
@@ -135,7 +134,6 @@ export default {
        getCnc() {
             axios({
               method: 'post',
-              // crossdomain: true,
               url: '/getcnc',
               data: {id:'cnc3'},
               headers: {
@@ -143,7 +141,6 @@ export default {
               }
             })
             .then(res => {
-                // this.cnc_data = res.data;
                 this.relative_x = this.truncateNum(res.data.relative_coordinate.x);
                 this.relative_y = this.truncateNum(res.data.relative_coordinate.y);
                 this.relative_z = this.truncateNum(res.data.relative_coordinate.z);
@@ -206,7 +203,6 @@ export default {
     padding-top: .25rem;
     padding-bottom: .25rem;
     background-color: rgba(32, 179, 179, 0.15);
-    /* border: 1px solid rgba(129, 113, 136, 0.2); */
 }
 
   .green-light {

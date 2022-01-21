@@ -303,10 +303,8 @@ export default {
           })
         },
         getOperationStatus() {
-            // const cnc_url = process.env.VUE_APP_CNC_URL
             axios({
               method: 'post',
-              // crossdomain: true,
               url: '/getcnc',
               data: {id:'cnc2'},
               headers: {
