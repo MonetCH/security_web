@@ -7,7 +7,7 @@ import CncControlPanel_3 from "../components/CncControlPanel_3.vue"
 import laserComponent from "../components/laserProcess.vue"
 import agv from "../components/agv.vue"
 /* Layout */
-import Layout from '@/layout'
+// import Layout from '@/layout'
 
 Vue.use(Router)
 
@@ -38,17 +38,17 @@ Vue.use(Router)
  * all roles can be accessed
  */
  export const constantRoutes = [
-  {
-    path: '/redirect',
-    component: Layout,
-    hidden: true,
-    children: [
-      {
-        path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index')
-      }
-    ]
-  },
+  // {
+  //   path: '/redirect',
+  //   component: Layout,
+  //   hidden: true,
+  //   children: [
+  //     {
+  //       path: '/redirect/:path(.*)',
+  //       component: () => import('@/views/redirect/index')
+  //     }
+  //   ]
+  // },
   {
     path: '/login',
     component: () => import('@/views/login/index'),
