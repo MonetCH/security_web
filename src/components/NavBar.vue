@@ -19,6 +19,7 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto" right>
+            <b-navbar-brand> {{ username }} </b-navbar-brand>
             <b-nav-item @click="logout" href="#">Sign Out</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -29,12 +30,14 @@
 <script>
 import cncGetters from 'vuex'
 import checkPermission from '@/utils/permission'
+import store from '../store'
 
 export default {
     name: "NavBar",
      data() {
       return {
-        selected: null
+        selected: null,
+        username: store.getters.name
       }
     },
     methods: {
