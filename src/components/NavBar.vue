@@ -6,16 +6,16 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav >
-          <!-- <b-nav-item v-if="checkPermission(['admin', 'laser', 'web'])" href="/laser">Laser</b-nav-item>
-          <b-nav-item v-if="checkPermission(['admin', 'agv', 'web'])" href="/agv">Agv</b-nav-item> -->
-          <b-nav-item href="/log">log</b-nav-item>
+        <b-navbar-nav>
+          <b-nav-item v-if="checkPermission(['admin', 'laser', 'web'])" href="/laser">Laser</b-nav-item>
+          <b-nav-item v-if="checkPermission(['admin', 'agv', 'web'])" href="/agv">Agv</b-nav-item>
           <b-form-select id="cnc_select" type="dark" variant="dark" v-if="checkPermission(['admin', 'cnc', 'web'])" v-model="selected" @change="goToCnc()">
             <b-form-select-option :value="null" selected disabled hidden>CNC</b-form-select-option>
             <b-form-select-option value="CNC 1" >CNC 1</b-form-select-option>
             <b-form-select-option value="CNC 2" >CNC 2</b-form-select-option>
             <b-form-select-option value="CNC 3" >CNC 3</b-form-select-option>
           </b-form-select>
+          <b-nav-item v-if="checkPermission(['admin'])" href="/log">Log</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
