@@ -7,8 +7,9 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav >
-          <b-nav-item v-if="checkPermission(['admin', 'laser', 'web'])" href="/laser">Laser</b-nav-item>
-          <b-nav-item v-if="checkPermission(['admin', 'agv', 'web'])" href="/agv">Agv</b-nav-item>
+          <!-- <b-nav-item v-if="checkPermission(['admin', 'laser', 'web'])" href="/laser">Laser</b-nav-item>
+          <b-nav-item v-if="checkPermission(['admin', 'agv', 'web'])" href="/agv">Agv</b-nav-item> -->
+          <b-nav-item href="/log">log</b-nav-item>
           <b-form-select id="cnc_select" type="dark" variant="dark" v-if="checkPermission(['admin', 'cnc', 'web'])" v-model="selected" @change="goToCnc()">
             <b-form-select-option :value="null" selected disabled hidden>CNC</b-form-select-option>
             <b-form-select-option value="CNC 1" >CNC 1</b-form-select-option>

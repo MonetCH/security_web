@@ -1,9 +1,9 @@
 
 <template>
   <div id="app">
-    <NavBar />
-    <router-view/>
-    <!-- <Cnc /> -->
+    <!-- <NavBar /> -->
+    <!-- <router-view/> -->
+    <Log />
   </div>
 </template>
 
@@ -19,6 +19,7 @@ import CncControlPanel from './components/CncControlPanel'
 import CncControlPanel_2 from './components/CncControlPanel_2'
 import CncControlPanel_3 from './components/CncControlPanel_3'
 import agv from './components/agv'
+import Log from './components/Log'
 export default {
   name: 'App',
   components: {
@@ -32,7 +33,8 @@ export default {
     CncControlPanel_2,
     CncControlPanel_3,
     laserProcess,
-    agv
+    agv,
+    Log
   }
 }
 </script>

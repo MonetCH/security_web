@@ -6,6 +6,7 @@ import CncControlPanel_2 from "../components/CncControlPanel_2.vue"
 import CncControlPanel_3 from "../components/CncControlPanel_3.vue"
 import laserComponent from "../components/laserProcess.vue"
 import agv from "../components/agv.vue"
+import log from "../components/Log.vue"
 
 Vue.use(Router)
 
@@ -91,6 +92,15 @@ export const asyncRoutes = [
     name: 'agv',
     meta: {
       title: 'agv',
+    }
+  },
+  {
+    path: '/log',
+    component: log,
+    alwaysShow: false,
+    name: 'log',
+    meta: {
+      title: 'log'
     }
   },
   {

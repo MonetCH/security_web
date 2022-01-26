@@ -55,38 +55,47 @@ const initOptions = {
 
 const keycloak = Keycloak(initOptions)
 
-keycloak.init({ onLoad: initOptions.onLoad }).then(async authenticated => {
-  if (!authenticated) {
-    window.location.reload()
-    return
-  } else {
-    Vue.prototype.$keycloak = keycloak
-    await store.dispatch('user/keycloakLogin', keycloak.token)
-    console.log('Authenticated', keycloak)
-  }
+// keycloak.init({ onLoad: initOptions.onLoad }).then(async authenticated => {
+//   if (!authenticated) {
+//     window.location.reload()
+//     return
+//   } else {
+//     Vue.prototype.$keycloak = keycloak
+//     await store.dispatch('user/keycloakLogin', keycloak.token)
+//     console.log('Authenticated', keycloak)
+//   }
 
-  // 更新token
-  setInterval(() => {
-    keycloak.updateToken(70).then((refreshed) => {
-      if (refreshed) {
-        console.log('Token refreshed')
-      } else {
-        console.log('Token not refreshed, valid for ' +
-          Math.round(keycloak.tokenParsed.exp + keycloak.timeSkew - new Date().getTime() / 1000) + ' seconds')
-      }
-    }).catch(error => {
-      console.log('Failed to refresh token', error)
-    })
-  }, 60000)
+//   // 更新token
+//   setInterval(() => {
+//     keycloak.updateToken(70).then((refreshed) => {
+//       if (refreshed) {
+//         console.log('Token refreshed')
+//       } else {
+//         console.log('Token not refreshed, valid for ' +
+//           Math.round(keycloak.tokenParsed.exp + keycloak.timeSkew - new Date().getTime() / 1000) + ' seconds')
+//       }
+//     }).catch(error => {
+//       console.log('Failed to refresh token', error)
+//     })
+//   }, 60000)
   
-  new Vue({
-    el: '#app',
-    router,
-    components: { App },
-    template: '<App/>',
-    store,
-    render: h => h(App)
-  })
-}).catch(error => {
-  console.log('Authenticated Failed', error)
+//   new Vue({
+//     el: '#app',
+//     router,
+//     components: { App },
+//     template: '<App/>',
+//     store,
+//     render: h => h(App)
+//   })
+// }).catch(error => {
+//   console.log('Authenticated Failed', error)
+// })
+
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>',
+  store,
+  render: h => h(App)
 })
