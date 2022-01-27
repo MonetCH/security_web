@@ -2,7 +2,8 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view/>
+    <!-- <router-view/> -->
+    <Log />
   </div>
 </template>
 

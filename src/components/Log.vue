@@ -146,7 +146,7 @@ export default {
 </script>
 <style>
 .log_table {
-    color:azure
+    color:azure !important;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
