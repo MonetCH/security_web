@@ -1,6 +1,6 @@
 <template>
   <b-container class="bv-example-row" >
-    <b-table class="log_table" striped bordered hover fixed head-variant="light" :fields="fields"  :items="items">
+    <b-table striped bordered hover fixed class="log_table" :fields="fields"  :items="items">
       <template>
         <b-tr>
           <b-th colspan="2"><span class="sr-only">Name and ID</span></b-th>
