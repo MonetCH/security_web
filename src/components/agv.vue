@@ -18,7 +18,7 @@
                 
             }
         },
-        mounted:{
+        mounted() {
             // Your mounted scripts
         },
         methods:{

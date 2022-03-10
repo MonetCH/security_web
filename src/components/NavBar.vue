@@ -15,7 +15,7 @@
             <b-form-select-option value="CNC 2" >CNC 2</b-form-select-option>
             <b-form-select-option value="CNC 3" >CNC 3</b-form-select-option>
           </b-form-select>
-          <b-nav-item v-if="checkPermission(['admin'])" href="/log">Log</b-nav-item>
+          <!-- <b-nav-item v-if="checkPermission(['admin'])" href="/log">Log</b-nav-item> -->
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
